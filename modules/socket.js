@@ -28,12 +28,12 @@ module.exports = class Socket {
 
             socket.on('join-wa', function(data) {
                 var user = data.user;
-                socket.join(user);
+                socket.join('admin');
             })
 
             socket.on('SENSORS_DATA', function(data) {
                 var user = data.user;
-                socket.broadcast.to(user).emit('SENSORS_DATA', data);
+                socket.broadcast.to('admin').emit('SENSORS_DATA', data);
             });
 
             socket.on('RELAYS', function(data) {
