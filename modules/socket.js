@@ -37,8 +37,9 @@ module.exports = class Socket {
             });
 
             socket.on('RELAYS', function(data) {
+                console.log(data);
                 var user = data.user;
-                socket.broadcast.to(user).emit('RELAYS', data);
+                socket.broadcast.to('admin').emit('RELAYS', data);
             })
         });
 
